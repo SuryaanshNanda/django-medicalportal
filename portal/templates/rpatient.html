@@ -1,0 +1,72 @@
+{% extends "base.html"%}
+
+    {% block content %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Javaid Bashir :: Web developer</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round" rel="stylesheet">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<!--  Request me for a signup form or any type of help  -->
+<div class="login-form">    
+    <form  method='POST' enctype="multipart/form-data">
+        {%  csrf_token %}
+        
+        <div class="avatar"><i class="material-icons">&#xE7FF;</i></div>
+        <h4 class="modal-title">SignUp as patient</h4>
+    
+        <div class="form-group">
+            <input type="text" name="Name" class="form-control" placeholder="Name" required="required">
+        </div>
+        <div class="form-group">
+            <input type="text" name="Address" class="form-control" placeholder="Address" required="required">
+        </div>
+        {% comment %} <div class="form-group"> {% endcomment %}
+            {% comment %} <input type="text" name="Username" class="form-control" placeholder="Username" required="required"> {% endcomment %}
+        {% comment %} </div> {% endcomment %}
+        <div class="form-group">
+            <input type="email" name="Email" class="form-control" placeholder="Email" required="required">
+        </div>            
+        <div class="form-group">
+            <input type="password" name="Password" class="form-control" placeholder="Password" required="required">
+        </div>
+        <div class="form-group">
+            <input type="password" name="ConfirmPassword" class="form-control" placeholder="ConfirmPassword" required="required">
+        </div>
+        <div class="form-group">
+            <input type="phone" name="Phone" class="form-control" placeholder="Phone" required="required">
+        </div>
+        <div class="form-group">
+            <input type="text" name="City" class="form-control" placeholder="city" required="required">
+        </div>
+        <select class="form-select" aria-label="Default select example">
+            <option selected>Select Id proof</option>
+            <option value="Adhaar">Adhaar</option>
+            <option value="Driving license">Driving license</option>
+            <option value="Voterid">Voterid</option>
+        </select>
+        
+        <div>
+<label for="formFileLg" class="form-label">Upload Id</label>
+<input class="form-control form-control-lg" id="formFileLg" type="file" name="Patientid">
+    </div>
+        <button type="submit" class="btn btn-primary btn-block mt-2">Sign up</button>             
+    </form>         
+    
+</div>
+<div class="text-center small">Already have an account? <a href="{%url 'logpatient'%}">Sign In</a></div>
+</div>
+</body>
+</html>
+
+
+{% endblock %}
